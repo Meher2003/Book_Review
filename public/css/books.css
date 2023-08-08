@@ -1,0 +1,101 @@
+.container-fluid {
+  padding: 0;
+}
+#title .container-fluid {
+  padding: 3% 15% 1%;
+}
+.navbar {
+  padding: 0;
+}
+#main_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+.books_header {
+  width: 100vw;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
+}
+.card {
+  margin: 1vh 1vw;
+  height: inherit;
+  padding: 1vh 1vw;
+  border: none;
+}
+.card-img-top {
+  height: 300px;
+  width: fit-content;
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+/* .cover {
+  background: linear-gradient(
+    to right,
+    rgb(112, 112, 112) 3px,
+    rgba(177, 177, 177, 0.5) 5px,
+    rgba(216, 216, 216, 0.25) 7px,
+    rgba(213, 213, 213, 0.25) 10px,
+    transparent 12px,
+    transparent 16px,
+    rgba(184, 184, 184, 0.25) 17px,
+    transparent 22px
+  );
+  box-shadow: 0 0 5px -1px rgb(197, 197, 197),
+    inset -1px 1px 2px rgba(255, 255, 255, 0.5);
+} */
+
+/* search bar css */
+a:focus,a,a:hover,a:checked{
+  color:black;
+}
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding: 1vh 1vw;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #ff4c68;
+  border-right: none;
+  padding: 1vh 1vw;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9dbfaf;
+}
+
+.searchTerm:focus {
+  color: #ff4c68;
+}
+
+.searchButton {
+  border: 1px solid #ff4c68;
+  background: #ff4c68;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  display: flex;
+  width: 60vw;
+  height: 10vh;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh auto;
+  padding: 1vh 1vw;
+}
+#pricing {
+  padding: 1vh 1vw;
+}
+/* search bar css ends here */

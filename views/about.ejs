@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>About</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu"
+      rel="stylesheet"
+    />
+    
+
+    <!-- CSS Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/book.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/11fe48ab2d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/home.js"></script>
+  </head>
+
+  <body>
+    <!-- alert div starts here -->
+    <div id="loading">Loading&#8230;</div>
+    <!-- alert div ends here -->
+    <div id="login_container">
+      <div class="container_login">
+        <div class="screen">
+          <div class="screen__content">
+            <a href="#" class="close" onclick="closeButtonHandler()"></a>
+            <form class="login__" action="/login" method="post">
+              <div class="login__field">
+                <i class="login__icon fas fa-user"></i>
+                <input
+                  type="text"
+                  class="login__input"
+                  placeholder="Username"
+                  name="Username"
+                  required
+                />
+              </div>
+              <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                <input
+                  type="password"
+                  class="login__input"
+                  placeholder="Password"
+                  name="Password"
+                  required
+                />
+              </div>
+              <button class="button login__submit" type="submit">
+                <span class="button__text">Log In Now</span>
+                <i class="button__icon fas fa-chevron-right"></i>
+              </button>
+              <button class="button login__submit" onclick="signUpHandler()">
+                <span class="button__text">Sign Up Now</span>
+                <i class="button__icon fas fa-chevron-right"></i>
+              </button>
+            </form>
+          </div>
+          <div class="screen__background">
+            <span
+              class="screen__background__shape screen__background__shape4"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape3"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape2"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape1"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="colored-section" id="title">
+      <div class="container-fluid">
+        <!-- Nav Bar -->
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <!-- <a class="navbar-brand" href="">${Book.review}</a> -->
+          <a class="navbar-brand" href="">MarkmyViews</a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarTogglerDemo02"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/category">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/books:general">Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#footer">Contact</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <% if(Username){%>
+              <li class="nav-item">
+                <div class="efecto" style="background-image:url(https://ui-avatars.com/api/?uppercase=true&name=<%=Username%>&background=random&color=fff&rounded=true) !important;"></div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <form action="/logout" method="post">
+                    <button class="logout" type="submit">Logout</button>
+                  </form>
+                </a>
+              </li>
+              <%}else{%>
+              <li class="nav-item">
+                <a class="nav-link" onclick="loginPageHandler()">
+                  <div class="login">Login</div>
+                </a>
+              </li>
+              <%}%>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Title -->
+    </section>
+    <section>
+      <div id="loader" class="center"></div>
+      <!-- content for the about page starts here -->
+      <br>
+      <section class="white-section" id="cta">
+        <div class="container-fluid">
+          <h3 class="big-heading">Problem we found</h3>
+          <ul style="list-style: none;padding:1vh 1vw;margin:1vh 1vw;text-align: left;">
+            <li class="mylist">◉ No dedicated website which collectively contains Engineering books of renowned authors and publications.</li>
+              <li class="mylist">◉ Students need to compare and choose the best book which fulfills their need by manually visiting website of renowned publications one-by-one which eventually is time consuming.</li>
+                <li class="mylist">◉ Renowned Publications and authors such as PHI Learning, Wiley India, Nirali Prakashan , Khanna Publishers etc. have websites for the books of their publication only.</li>
+          </ul>
+        </div>
+      </section>
+      <br>
+      <section class="colored-section" id="cta">
+        <div class="container-fluid">
+          <h3 class="big-heading">Solution we got</h3>
+          <ul style="list-style: none;padding:1vh 1vw;margin:1vh 1vw;text-align: left;">
+            <li class="mylist">◉ We merged books from renowned authors and Publications , all at one place!</li>
+          <li class="mylist">◉ This platform will help students to compare and select the best book as per their needs and reviews from other peers which eventually save time.</li>
+          <li class="mylist">◉ Students can post reviews for books which would help simplifying the process of choosing between many books.</li>
+          <li class="mylist">◉ Students can segregate books as per the subject or course that they have enrolled in the category section.</li>
+          </ul>
+        </div>
+      </section>
+      <br>
+      <section class="white-section" id="cta">
+        <div class="container-fluid">
+          <h3 class="big-heading">Our goal</h3>
+          <ul style="list-style: none;padding:1vh 1vw;margin:1vh 1vw;text-align: left;">
+            <li class="mylist"> Moving forward our goal is to add more features which would help students to seamlessly choose the correct book according to his/her need.</li>
+          </ul>
+        </div>
+      </section>
+      <!-- content for the about page end here -->
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="white-section" id="footer">
+      <div class="container-fluid">
+        <i class="social-icon fab fa-facebook-f"></i>
+        <i class="social-icon fab fa-twitter"></i>
+        <i class="social-icon fab fa-instagram"></i>
+        <i class="social-icon fas fa-envelope"></i>
+        <!-- <p>&copy; Copyright 2022 ${Book.review}</p> -->
+        <p>&copy; Copyright 2022.MarkmyViews</p>
+      </div>
+    </footer>
+    <script>
+      document.onreadystatechange = function() {
+        if (document.readyState !== "complete") {
+          document.querySelector(
+          "body").style.visibility = "hidden";
+          document.querySelector(
+          "#loader").style.visibility = "visible";
+        } else {
+          document.querySelector(
+          "#loader").style.display = "none";
+          document.querySelector(
+          "body").style.visibility = "visible";
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Categories</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/category.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/11fe48ab2d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/home.js"></script>
+    <script src="js/category.js"></script>
+  </head>
+  <body>
+    <div id="loading">Loading&#8230;</div>
+    <div id="login_container">
+      <div class="container_login">
+        <div class="screen">
+          <div class="screen__content">
+            <a href="#" class="close" onclick="closeButtonHandler()"></a>
+            <form class="login__" method="post" action="/login">
+              <div class="login__field">
+                <i class="login__icon fas fa-user"></i>
+                <input
+                  type="text"
+                  class="login__input"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+              <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                <input
+                  type="password"
+                  class="login__input"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <button class="button login__submit">
+                <span class="button__text">Log In Now</span>
+                <i class="button__icon fas fa-chevron-right"></i>
+              </button>
+              <button class="button login__submit" onclick="signUpHandler()">
+                <span class="button__text">Sign Up Now</span>
+                <i class="button__icon fas fa-chevron-right"></i>
+              </button>
+            </form>
+          </div>
+          <div class="screen__background">
+            <span
+              class="screen__background__shape screen__background__shape4"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape3"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape2"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape1"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="colored-section" id="title">
+      <div class="container-fluid">
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="">MarkmyViews</a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarTogglerDemo02"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/category">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/books:general">Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#footer">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <% if(Username){%>
+              <li class="nav-item">
+                <div class="efecto" style="background-image:url(https://ui-avatars.com/api/?uppercase=true&name=<%=Username%>&background=random&color=fff&rounded=true) !important;"></div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <form action="/logout" method="post">
+                    <button class="logout" type="submit">Logout</button>
+                  </form>
+                </a>
+              </li>
+              <%}else{%>
+              <li class="nav-item">
+                <a class="nav-link" onclick="loginPageHandler()">
+                  <div class="login">Login</div>
+                </a>
+              </li>
+              <%}%>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </section>
+    <!-- content of the categories page starts here -->
+    <h5 class="section-heading">Categories</h5>
+    <div id="main_container"></div>
+    <!-- content of the categories page ends here -->
+    <!-- Footer -->
+    <footer class="white-section" id="footer">
+      <div class="container-fluid">
+        <i class="social-icon fab fa-facebook-f"></i>
+        <i class="social-icon fab fa-twitter"></i>
+        <i class="social-icon fab fa-instagram"></i>
+        <i class="social-icon fas fa-envelope"></i>
+        <p>&copy; Copyright 2022.MarkmyViews</p>
+      </div>
+    </footer>
+  </body>
+  <script>
+    document.getElementById("main_container").innerHTML = "";
+    categories.map((element) => {
+      document.getElementById("main_container").innerHTML += `
+      <div class="category_container">
+        <a class="card" style="width:fit-content;" href=${element.hreflink}>
+          <img src=${element.img} class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">${element.title}</h5>
+          </div>
+        </a>
+      </div>  
+`;
+    });
+  </script>
+</html>

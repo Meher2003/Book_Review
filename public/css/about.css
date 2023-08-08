@@ -1,0 +1,18 @@
+.mylist {
+  padding: 1vh 1vw;
+  margin: 1vh 1vw;
+  font-size: 1.5rem;
+  animation-name: myanimation;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes myanimation {
+  0% {
+    overflow-x: hidden;
+    margin-left: 100%;
+    width: 300%;
+  }
+  100% {
+    margin-left: 1vw;
+  }
+}

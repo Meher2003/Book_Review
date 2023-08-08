@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title><%=Title%></title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet" />
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/book.css" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/11fe48ab2d.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <script src="js/home.js"></script>
+  <!-- <script src="js/book.js"></script> -->
+</head>
+
+<body>
+  <div id="loading">Loading&#8230;</div>
+  <div id="login_container">
+    <div class="container_login">
+      <div class="screen">
+        <div class="screen__content">
+          <a href="#" class="close" onclick="closeButtonHandler()"></a>
+          <form class="login__" action="/login" method="post">
+            <div class="login__field">
+              <i class="login__icon fas fa-user"></i>
+              <input type="text" class="login__input" placeholder="Username" name="Username" required/>
+            </div>
+            <div class="login__field">
+              <i class="login__icon fas fa-lock"></i>
+              <input type="password" class="login__input" placeholder="Password" name="Password" required/>
+            </div>
+            <button class="button login__submit" type="submit">
+              <span class="button__text">Log In Now</span>
+              <i class="button__icon fas fa-chevron-right"></i>
+            </button>
+            <button class="button login__submit" onclick="signUpHandler()">
+              <span class="button__text">Sign Up Now</span>
+              <i class="button__icon fas fa-chevron-right"></i>
+            </button>
+          </form>
+        </div>
+        <div class="screen__background">
+          <span class="screen__background__shape screen__background__shape4"></span>
+          <span class="screen__background__shape screen__background__shape3"></span>
+          <span class="screen__background__shape screen__background__shape2"></span>
+          <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="colored-section" id="title">
+    <div class="container-fluid">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="">MarkmyViews</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/category">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/books:general">Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <% if(Username){%>
+            <li class="nav-item">
+              <div class="efecto" style="background-image:url(https://ui-avatars.com/api/?uppercase=true&name=<%=Username%>&background=random&color=fff&rounded=true) !important;"></div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <form action="/logout" method="post">
+                  <button class="logout" type="submit">Logout</button>
+                </form>
+              </a>
+            </li>
+            <%}else{%>
+            <li class="nav-item">
+              <a class="nav-link" onclick="loginPageHandler()">
+                <div class="login">Login</div>
+              </a>
+            </li>
+            <%}%>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </section>
+    <!-- Page content -->
+    <section>
+      <div class="container-fluid mycontainer">
+        <div class="bookImage" style="background-image: url(<%=Image%>);background-repeat: no-repeat;background-position: center;background-size:contain;">
+          <!-- <img style="max-width: 30vw;max-height:60vh;" src="<%=Image%>" alt="Image not found!" /> -->
+        </div>
+        <div class="scrollableDiv">
+          <h5 style="text-align: center"><%=Title%></h5>
+          <div style="
+              display: flex;
+              text-align: center;
+              align-items: center;
+              justify-content: center;
+            ">
+            <div class="Stars" style="--rating: <%=Rating%>" aria-label="Rating of this product is 2.3 out of 5.">
+              <p style="font-size: 1rem"><%=Rating%></p>
+            </div>
+          </div>
+          <h5 style="display: flex; flex-direction: row; justify-content: center">
+            Author
+            <p style="font-weight: 300">&nbsp; <%=Author%></p>
+          </h5>
+          <h5>Description</h5>
+          <div style="margin: 1vh 1vw; padding: 1vh 1vw; text-align: initial">
+            <%=Description%>
+          </div>
+          <div class="ratings">
+            <h5>Reviews and Ratings</h5>
+            <% if(Reviews){%>
+              <% Reviews.forEach(Review => {%>
+            <div class="card mycard_body">
+              <div class="card-body">
+                <h5 class="card-title"><%=Review.Username%></h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  <div style="display: flex">
+                    <div class="Stars" style="--rating: <%=Review.Rating%>" aria-label="Rating of this product is 2.3 out of 5."></div>
+                  </div>
+                </h6>
+                <p class="card-text">
+                  <%=Review.Review%>
+                </p>
+              </div>
+            </div>
+            <%}) %>
+            <%}else{%>
+            <%}%>
+          </div>
+          <% if(Username){%>
+          <form action="/review:<%=ISBN%>" class="myform" method="post">
+            <div class="UserRR">
+              <h5>Rate and Review the book for others to decide</h5>
+              <div class="UserRating" style="padding:2vh 1vw;">
+                <input type="number" step="0.1" min="1" max="5" value="5" style="width: 40px; height: 40px" name="Rating"/> Stars
+                of 5
+              </div>
+              <div class="UserReview">
+                <h5>Review</h5>
+                <textarea rows="8" cols="80" name="Review"></textarea>
+              </div>
+              <button type="submit" class="btn btn-success">Post</button>
+            </div>
+          </form>
+          <%}else{%>
+          <div class="card mycard" style="width:100%;height: fit-content !important;">
+            <div class="card-body">
+              <h5 class="card-title">Login or SignUp to Review</h5>
+              <p>Help grow the community by suggesting better choices:)</p>
+              <a class="nav-link" style="display: flex;align-items: center;justify-content: center;" onclick="loginPageHandler()">
+                <div class="login"  style="color: white;font-size:1.3rem;background-color:rgb(255,76,104);width:fit-content;border:1px solid white;">Login</div>
+              </a>
+            </div>
+          </div>
+          <%}%>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer section -->
+    <footer class="white-section" id="footer">
+      <div class="container-fluid">
+        <i class="social-icon fab fa-facebook-f"></i>
+        <i class="social-icon fab fa-twitter"></i>
+        <i class="social-icon fab fa-instagram"></i>
+        <i class="social-icon fas fa-envelope"></i>
+        <p>&copy; Copyright 2022.MarkmyViews</p>
+      </div>
+    </footer>
+  </body>
+</html>

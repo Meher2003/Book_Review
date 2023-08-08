@@ -1,0 +1,112 @@
+.container-fluid {
+  padding: 0;
+}
+#title .container-fluid {
+  padding: 3% 15% 1%;
+}
+.navbar {
+  padding: 0;
+}
+.mycontainer {
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  margin: 2vh 0vw;
+  padding: 1vh 1vw;
+}
+.bookImage {
+  width: 100%;
+  height: 60vh;
+  /* border: 2px solid rgb(224, 224, 224); */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 3vh 5vw;
+}
+.bookImage img {
+  max-width: fit-content;
+  max-height: fit-content;
+}
+.scrollableDiv {
+  height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-left: 1vw;
+}
+:root {
+  --star-size: 25px;
+  --star-color: #fff;
+  --star-background: #fc0;
+}
+
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1;
+  font-weight: 500;
+  color: #878787;
+}
+.Stars::before {
+  content: "★★★★★";
+  letter-spacing: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--star-background) var(--percent),
+    var(--star-color) var(--percent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card-body {
+  width: 100%;
+}
+.ratings {
+  width: inherit;
+}
+.mycard_body {
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
+}
+.scrollableDiv::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+.scrollableDiv::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+.scrollableDiv::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+.myform {
+  margin: 1vh 1vw;
+  padding: 1vh 1vw;
+  border: 1px solid rgb(224, 224, 224);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: inherit;
+}
+@media screen and (max-width: 740px) {
+  .mycontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bookImage {
+    height: 40vh;
+    width: 90vw;
+    padding: 1vh 1vw;
+    margin: 1vh 1vw;
+  }
+}
+textarea {
+  overflow: auto;
+  resize: vertical;
+  width: 100%;
+}
